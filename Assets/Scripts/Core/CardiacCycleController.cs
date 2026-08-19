@@ -20,7 +20,7 @@ namespace Core
         [SerializeField, Range(0f, 1f)] private float phaseCorrectGain = 0.15f;
         [SerializeField, Range(0.05f, 0.5f)] private float resyncSnapThreshold = 0.2f;
 
-        [Header("Demo-tuned timing (NOT truth sheet — confirm with Umer)")]
+        [Header("Demo-tuned timing")]
         [SerializeField, Range(0f, 80f)] private float isovolumicMs = 40f;
         [SerializeField, Range(2f, 40f)] private float s1SnapMs = 18f;
         [SerializeField, Range(2f, 40f)] private float s2SnapMs = 18f;

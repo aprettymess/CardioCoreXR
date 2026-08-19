@@ -2,7 +2,12 @@ fileFormatVersion: 2
 guid: 42b0e8931cae71e4ab25ef673344fe2a
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PBRGraph
+    second: {fileID: 2100000, guid: 23f7803fea94b8b47b19c8555261ba86, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
