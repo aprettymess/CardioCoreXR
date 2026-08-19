@@ -25,19 +25,19 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0.105882354, g: 0.105882354, b: 0.12156863, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 16bc8a9d5451ca44d8f70575adbece3a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1047401660}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &317642240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8771091787928289351, guid: 42b0e8931cae71e4ab25ef673344fe2a, type: 3}
+  m_PrefabInstance: {fileID: 1992016032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &317642243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317642240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076d487888562454098ee8e5584e11b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Heart.HeartJointDriver
+  cycle: {fileID: 829112370}
+  jointRoot: {fileID: 476664257}
+  globalGain: 1
+  driveEnabled: 1
+  manualOverride: 1
+  mAvClose: 0
+  mSlOpen: 0
+  mVentricle: 0
+  mAtria: 0
+--- !u!4 &476664257 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3517207735422509005, guid: 42b0e8931cae71e4ab25ef673344fe2a, type: 3}
+  m_PrefabInstance: {fileID: 1992016032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &829112368
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,9 +160,9 @@ GameObject:
   m_Component:
   - component: {fileID: 829112369}
   - component: {fileID: 829112373}
-  - component: {fileID: 829112372}
   - component: {fileID: 829112371}
   - component: {fileID: 829112370}
+  - component: {fileID: 829112374}
   m_Layer: 0
   m_Name: Services
   m_TagString: Untagged
@@ -190,19 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.CardiacSync
   client: {fileID: 829112373}
   cycle: {fileID: 829112370}
---- !u!114 &829112372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829112368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1be3f004433c043827b311f844880b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CardioCore.CycleProbe
-  cycle: {fileID: 829112370}
 --- !u!114 &829112373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +243,19 @@ MonoBehaviour:
   mockRS1Ms: 45
   mockS1S2Ms: 300
   mockWindow: 256
+--- !u!114 &829112374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829112368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1be3f004433c043827b311f844880b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardioCore.CycleProbe
+  cycle: {fileID: 829112370}
 --- !u!1 &943215253
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +563,7 @@ Transform:
   m_GameObject: {fileID: 1751180625}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000026971102}
-  m_LocalPosition: {x: 0, y: 0.108, z: 0.406}
+  m_LocalPosition: {x: 0, y: 0.108, z: 0.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -621,6 +652,10 @@ PrefabInstance:
     - target: {fileID: -5874809838164014681, guid: 42b0e8931cae71e4ab25ef673344fe2a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.1461184
+      objectReference: {fileID: 0}
+    - target: {fileID: -4748361991329772099, guid: 42b0e8931cae71e4ab25ef673344fe2a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 42b0e8931cae71e4ab25ef673344fe2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -805,7 +840,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8771091787928289351, guid: 42b0e8931cae71e4ab25ef673344fe2a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 317642243}
   m_SourcePrefab: {fileID: -4161369568681901532, guid: 42b0e8931cae71e4ab25ef673344fe2a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

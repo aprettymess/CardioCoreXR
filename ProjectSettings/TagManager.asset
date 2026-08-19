@@ -31,6 +31,8 @@ TagManager:
   - SamplesInfoPanel
   - QDSUIToggleCheckboxRadio
   - QDSUIToggleThumbnail
+  - Arteries
+  - Veins
   layers:
   - Default
   - TransparentFX
