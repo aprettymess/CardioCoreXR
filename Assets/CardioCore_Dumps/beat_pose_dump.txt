@@ -1,0 +1,45 @@
+# BeatPoseDump root=Beating heart clip=test len=1s samples=90
+# rest = sample 0. peak = frame of max displacement from rest. tPeak normalized 0..1.
+
+[skeletal.3/Root.4/heart_jnt.5/right_atrium_jnt.6]  tPeak=0.13
+  pos rest=(4.604, 0.648, 3.432) peak=(5.175, 0.968, 3.432) (d=0.6552)
+
+[skeletal.3/Root.4/heart_jnt.5/cardiac_muscle_jnt.7]  tPeak=0.17
+  scl rest=(1.044, 1.107, 1.044) peak=(0.974, 1.343, 1.049) (d=0.2463)
+
+[skeletal.3/Root.4/heart_jnt.5/right_pulmonary_valve_jnt.9]  tPeak=0.27
+  rot rest=(2.334, 0, 65.363) peak=(2.334, 0, 5.363) (dAngle=60.0)
+
+[skeletal.3/Root.4/heart_jnt.5/left_pulmonary_valve_jnt.11]  tPeak=0.27
+  rot rest=(2.524, 184.68, 27.837) peak=(2.524, 184.68, 327.837) (dAngle=60.0)
+
+[skeletal.3/Root.4/heart_jnt.5/left_atrium_jnt.13]  tPeak=0.13
+  pos rest=(-3.145, 2.146, 3.252) peak=(-3.324, 2.538, 3.252) (d=0.4307)
+
+[skeletal.3/Root.4/heart_jnt.5/left_atrium_storage_jnt.14]  tPeak=0.24
+  pos rest=(-1.141, 2.031, -2.009) peak=(-1.251, 2.212, -2.264) (d=0.3316)
+
+[skeletal.3/Root.4/heart_jnt.5/left_mitral_valve_jnt.15]  tPeak=0.17
+  pos rest=(-3.242, -0.964, 2.525) peak=(-2.642, -0.964, 2.525) (d=0.5999)
+
+[skeletal.3/Root.4/heart_jnt.5/right_mitral_valve_jnt.16]  tPeak=0.17
+  pos rest=(-2.15, -0.977, 2.406) peak=(-2.75, -0.977, 2.406) (d=0.5999)
+
+[skeletal.3/Root.4/heart_jnt.5/aortic_valve_02_jnt.17]  tPeak=0.27
+  rot rest=(7.633, 43.124, 79.627) peak=(7.633, 43.124, 119.626) (dAngle=40.0)
+  scl rest=(1, 1, 1) peak=(0.65, 1, 1) (d=0.35)
+
+[skeletal.3/Root.4/heart_jnt.5/aortic_valve_03_jnt.19]  tPeak=0.27
+  rot rest=(314.069, 261.163, 180.657) peak=(314.069, 261.163, 220.656) (dAngle=40.0)
+  scl rest=(1, 1, 1) peak=(0.65, 1, 1) (d=0.35)
+
+[skeletal.3/Root.4/heart_jnt.5/aortic_valve_01_jnt.21]  tPeak=0.27
+  rot rest=(45.231, 177.429, 182.245) peak=(45.231, 177.429, 222.245) (dAngle=40.0)
+  scl rest=(1, 1, 1) peak=(0.65, 1, 1) (d=0.35)
+
+[skeletal.3/Root.4/heart_jnt.5/left_tricuspid_valve_jnt.23]  tPeak=0.19
+  pos rest=(2.136, -2.403, 1.957) peak=(2.636, -2.702, 1.957) (d=0.5828)
+
+[skeletal.3/Root.4/heart_jnt.5/right_tricuspid_valve_jnt.24]  tPeak=0.19
+  pos rest=(3.191, -2.941, 2.275) peak=(2.691, -2.641, 2.275) (d=0.5828)
+
