@@ -10,12 +10,19 @@ namespace XR
         [SerializeField] private HeartJointDriver driver;
         [SerializeField] private GameObject panelRoot;
 
-        [Header("Controls")]
+        [Header("Manual Toggle")]
         [SerializeField] private Toggle manualToggle;
+
+        [Header("Channel Sliders")]
         [SerializeField] private Slider avCloseSlider;
         [SerializeField] private Slider slOpenSlider;
         [SerializeField] private Slider ventricleSlider;
         [SerializeField] private Slider atriaSlider;
+
+        [Header("Preset Buttons")]
+        [SerializeField] private Button diastoleButton;
+        [SerializeField] private Button systoleButton;
+        [SerializeField] private Button resumeLiveButton;
 
         [Header("Summon")]
         [SerializeField] private OVRInput.Button toggleButton = OVRInput.Button.Two;
@@ -27,21 +34,19 @@ namespace XR
         {
             visible = !startHidden;
             if (panelRoot != null) panelRoot.SetActive(visible);
-            WireEvents();
+            if (manualToggle != null) manualToggle.onValueChanged.AddListener(OnManual);
+            Bind(avCloseSlider, v => { if (driver != null) driver.SetManualAvClose(v); });
+            Bind(slOpenSlider, v => { if (driver != null) driver.SetManualSlOpen(v); });
+            Bind(ventricleSlider, v => { if (driver != null) driver.SetManualVentricle(v); });
+            Bind(atriaSlider, v => { if (driver != null) driver.SetManualAtria(v); });
+            if (diastoleButton != null) diastoleButton.onClick.AddListener(OnDiastole);
+            if (systoleButton != null) systoleButton.onClick.AddListener(OnSystole);
+            if (resumeLiveButton != null) resumeLiveButton.onClick.AddListener(OnResume);
         }
 
-        private void WireEvents()
+        private void Bind(Slider s, UnityEngine.Events.UnityAction<float> a)
         {
-            if (manualToggle != null)
-                manualToggle.onValueChanged.AddListener(OnManualToggled);
-            if (avCloseSlider != null)
-                avCloseSlider.onValueChanged.AddListener(v => { if (driver != null) driver.SetManualAvClose(v); });
-            if (slOpenSlider != null)
-                slOpenSlider.onValueChanged.AddListener(v => { if (driver != null) driver.SetManualSlOpen(v); });
-            if (ventricleSlider != null)
-                ventricleSlider.onValueChanged.AddListener(v => { if (driver != null) driver.SetManualVentricle(v); });
-            if (atriaSlider != null)
-                atriaSlider.onValueChanged.AddListener(v => { if (driver != null) driver.SetManualAtria(v); });
+            if (s != null) s.onValueChanged.AddListener(a);
         }
 
         private void Update()
@@ -55,19 +60,37 @@ namespace XR
             if (panelRoot != null) panelRoot.SetActive(visible);
         }
 
-        private void OnManualToggled(bool on)
+        private void OnManual(bool on)
         {
             if (driver == null) return;
             driver.SetManualMode(on);
-            if (on) PushAllSliders();
+            if (on) PushSliders();
         }
 
-        private void PushAllSliders()
+        private void PushSliders()
         {
             if (avCloseSlider != null) driver.SetManualAvClose(avCloseSlider.value);
             if (slOpenSlider != null) driver.SetManualSlOpen(slOpenSlider.value);
             if (ventricleSlider != null) driver.SetManualVentricle(ventricleSlider.value);
             if (atriaSlider != null) driver.SetManualAtria(atriaSlider.value);
+        }
+
+        private void OnDiastole() => SetSliders(0f, 0f, 0f, 0f);
+        private void OnSystole() => SetSliders(1f, 1f, 1f, 0f);
+
+        private void SetSliders(float av, float sl, float ven, float atr)
+        {
+            if (manualToggle != null) manualToggle.isOn = true;
+            if (avCloseSlider != null) avCloseSlider.value = av;
+            if (slOpenSlider != null) slOpenSlider.value = sl;
+            if (ventricleSlider != null) ventricleSlider.value = ven;
+            if (atriaSlider != null) atriaSlider.value = atr;
+        }
+
+        private void OnResume()
+        {
+            if (manualToggle != null) manualToggle.isOn = false;
+            if (driver != null) driver.SetManualMode(false);
         }
     }
 }

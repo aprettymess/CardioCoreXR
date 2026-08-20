@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using CardioCore;
 using UnityEngine;
@@ -25,6 +25,9 @@ namespace Core
         [SerializeField, Range(30f, 70f)] private float mockRS1Ms = 45f;
         [SerializeField, Range(270f, 330f)] private float mockS1S2Ms = 300f;
         [SerializeField] private int mockWindow = 256;
+        private string mockRhythm = "normal";
+        private string mockMurmur = "none";
+
 
         private readonly TwinState state = new TwinState();
         private readonly TwinState.Wire wire = new TwinState.Wire();
@@ -98,9 +101,9 @@ namespace Core
             state.RPeakT = Time.realtimeSinceStartupAsDouble;
             state.RS1Ms = mockRS1Ms;
             state.S1S2Ms = mockS1S2Ms;
-            state.RhythmLabel = "normal";
+            state.RhythmLabel = mockRhythm;
             state.RhythmConf = 0.95f;
-            state.MurmurLabel = "none";
+            state.MurmurLabel = mockMurmur;
             state.MurmurConf = 0.9f;
             state.LeadOff = false;
             state.Ecg = ecgBuf;
@@ -110,7 +113,11 @@ namespace Core
             OnTwinState?.Invoke(state);
         }
 
-        // placeholder morphology only; the AI team owns real ecg[] / pcg_env[]
+        public void SetMockRhythm(string l) => mockRhythm = l;
+        public void SetMockMurmur(string l) => mockMurmur = l;
+
+        
+// placeholder morphology only; the AI team owns real ecg[] / pcg_env[]
         private void FillMock(float cycle)
         {
             float now = Time.realtimeSinceStartup;
