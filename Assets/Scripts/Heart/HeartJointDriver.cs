@@ -167,5 +167,13 @@ namespace Heart
             }
             return null;
         }
+        public void SetManualMode(bool on) => manualOverride = on;
+        public void SetManualAvClose(float v) { manualOverride = true; mAvClose = Mathf.Clamp01(v); }
+        public void SetManualSlOpen(float v) { manualOverride = true; mSlOpen = Mathf.Clamp01(v); }
+        public void SetManualVentricle(float v) { manualOverride = true; mVentricle = Mathf.Clamp01(v); }
+        public void SetManualAtria(float v) { manualOverride = true; mAtria = Mathf.Clamp01(v); }
+        public bool ManualMode => manualOverride;
     }
+    
+    
 }
